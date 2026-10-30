@@ -1,11 +1,15 @@
 {
   "version": "2026-10-30",
   "documents_published": true,
-  "binary_glb_published": false,
+  "binary_glb_published": true,
   "reason": "Binary GLB files generated locally; connector publication not yet verified. Do not infer that assets referenced in docs are hosted.",
   "local_bundle": "TEKY_ROVER_GITHUB_HANDOFF.zip",
   "baseline": "default_4rubber_2wd",
   "source_version": "V3.8.5",
   "geometry_reports_available_locally": true,
-  "runtime_tested": false
+  "runtime_tested": false,
+  "binary_scope": "4 procedural DRAFT GLBs only",
+  "high_fidelity_v385_derived_glbs_published": false,
+  "high_fidelity_pending_count": 32,
+  "note": "Full 32 GLBs available in local handoff ZIP, not yet uploaded to GitHub"
 }
