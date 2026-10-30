@@ -18,3 +18,6 @@ Giữ riêng `Chassis`, `Protection_Frame`, `Wheels/Drive`, `Sensors` và `Attac
 Asset hình học khác với cấu hình chạy thật. Native GEARS joints, sensors, motors, mass, friction và va chạm phải được kiểm chứng riêng. Các phiên bản V3.8.x gốc là tài liệu di sản và nguồn kiểm tra, **không mặc định là cấu hình tối thiểu**.
 
 Xem `AGENTS.md`, `docs/`, `configs/`, `assets/`, `qa/` và `scripts/` để phát triển.
+
+## Cấu hình Base chuẩn đã chốt
+Đọc **[Base Configuration Standard](docs/BASE_CONFIGURATION_STANDARD.md)** và file nguồn [robot_family.json](configs/robot_family.json) trước khi dựng hoặc sửa model. Có bốn profile riêng trong [configs/drivetrains/](configs/drivetrains/). Default là **4 bánh cao su, 2 bánh sau chủ động, 2 bánh trước bị động**, **không attachment/LiDAR/laser/xích**.

@@ -1,71 +1,225 @@
 {
   "project": "TEKY Modular Rover",
-  "schema_version": "1.0",
-  "canonical_base": "default_4rubber_2wd",
-  "coordinate_frame": "+X right, +Y up, +Z forward",
-  "glb_unit": "meter",
-  "teky_coordinate_unit": "cm (if native schema verified)",
-  "default": {
-    "rear_wheels": {
-      "count": 2,
-      "type": "rubber",
-      "driven": true,
-      "motor_logical_ports": [
+  "document_kind": "project_asset_configuration",
+  "schema_version": "1.1.0",
+  "last_revised": "2026-10-30",
+  "authoritative_spec": "docs/BASE_CONFIGURATION_STANDARD.md",
+  "glb": {
+    "unit": "meter",
+    "axis": "+X right, +Y up, +Z forward"
+  },
+  "teky_native_schema_confirmed": false,
+  "baseline_variant": "default_4rubber_2wd",
+  "canonical_base": {
+    "mechanical": {
+      "chassis": "Chassis_Root",
+      "guard": {
+        "asset": "Protection_Frame_Root",
+        "separate_glb": true,
+        "attachment_to_chassis": "fixed"
+      },
+      "front_mount": "Attachment_Dock_Front",
+      "rear_motor_count": 2,
+      "rear_motor_ports": [
         "outA",
         "outB"
+      ],
+      "default_attachment_id": null,
+      "default_chain_drive": false,
+      "wheels": [
+        {
+          "id": "Wheel_Rear_Left",
+          "axle": "rear",
+          "side": "left",
+          "type": "rubber",
+          "direct_drive": true,
+          "logical_port": "outA",
+          "coupled_by_chain": false
+        },
+        {
+          "id": "Wheel_Rear_Right",
+          "axle": "rear",
+          "side": "right",
+          "type": "rubber",
+          "direct_drive": true,
+          "logical_port": "outB",
+          "coupled_by_chain": false
+        },
+        {
+          "id": "Wheel_Front_Left",
+          "axle": "front",
+          "side": "left",
+          "type": "rubber",
+          "direct_drive": false,
+          "logical_port": null,
+          "coupled_by_chain": false
+        },
+        {
+          "id": "Wheel_Front_Right",
+          "axle": "front",
+          "side": "right",
+          "type": "rubber",
+          "direct_drive": false,
+          "logical_port": null,
+          "coupled_by_chain": false
+        }
       ]
     },
-    "front_wheels": {
-      "count": 2,
-      "type": "rubber",
-      "driven": false
-    },
-    "chain": false,
-    "attachment": null,
-    "lidar": false,
-    "laser": false,
-    "central_camera": {
-      "available": true,
-      "default_enabled": true,
-      "detachable": true
-    },
-    "protection_guard": {
-      "asset_group": "separate",
-      "mount": "fixed_to_chassis"
+    "selected_sensors": {
+      "lidar": false,
+      "laser": false,
+      "3_bottom_line_color_sensors": "separate sensor pack; retained from established rover",
+      "front_ultrasonic": "separate sensor pack; retained where fitted",
+      "central_elevated_camera": "separate sensor pack; previous default_enabled preference retained, configurable; not structural chassis"
     }
   },
   "variants": [
     {
       "id": "default_4rubber_2wd",
-      "front": "rubber",
-      "chain": false,
-      "status": "canonical"
+      "label": "Standard 2WD — 4 rubber wheels",
+      "default": true,
+      "motor_count": 2,
+      "rear": {
+        "wheel_type": "rubber",
+        "side_drive": [
+          "outA",
+          "outB"
+        ],
+        "both_direct_drive": true
+      },
+      "front": {
+        "wheel_type": "rubber",
+        "direct_drive": false,
+        "torque_transfer": "none",
+        "native_motor_ports": []
+      },
+      "chain": {
+        "enabled": false,
+        "independent_loops": 0,
+        "sprocket_rear_teeth": null,
+        "sprocket_front_teeth": null,
+        "ratio_nominal": null,
+        "physics_coupling_accepted": false
+      },
+      "attachment": null,
+      "lidar": false,
+      "laser": false,
+      "reference_file": "configs/drivetrains/default_4rubber_2wd.json",
+      "draft_visual": "assets/prototypes/v4_procedural_studies/default_4rubber_2wd_DRAFT.glb",
+      "high_fidelity_expected": "assets/base/default_4rubber_2wd.glb",
+      "high_fidelity_uploaded": false
     },
     {
       "id": "mixed_omni_2wd",
-      "front": "omni",
-      "chain": false,
-      "status": "optional"
+      "label": "Omni 2WD — rear rubber/front passive omni",
+      "default": false,
+      "motor_count": 2,
+      "rear": {
+        "wheel_type": "rubber",
+        "side_drive": [
+          "outA",
+          "outB"
+        ],
+        "both_direct_drive": true
+      },
+      "front": {
+        "wheel_type": "omni",
+        "direct_drive": false,
+        "torque_transfer": "none",
+        "native_motor_ports": []
+      },
+      "chain": {
+        "enabled": false,
+        "independent_loops": 0,
+        "sprocket_rear_teeth": null,
+        "sprocket_front_teeth": null,
+        "ratio_nominal": null,
+        "physics_coupling_accepted": false
+      },
+      "attachment": null,
+      "lidar": false,
+      "laser": false,
+      "reference_file": "configs/drivetrains/mixed_omni_2wd.json",
+      "draft_visual": "assets/prototypes/v4_procedural_studies/mixed_omni_2wd_DRAFT.glb",
+      "high_fidelity_expected": "assets/base/mixed_omni_2wd.glb",
+      "high_fidelity_uploaded": false
     },
     {
       "id": "mixed_omni_chain",
-      "front": "omni",
-      "chain": true,
-      "ratio": 1,
-      "status": "optional_physics_pending"
+      "label": "Omni Chain — rear rubber/front chain-coupled omni",
+      "default": false,
+      "motor_count": 2,
+      "rear": {
+        "wheel_type": "rubber",
+        "side_drive": [
+          "outA",
+          "outB"
+        ],
+        "both_direct_drive": true
+      },
+      "front": {
+        "wheel_type": "omni",
+        "direct_drive": false,
+        "torque_transfer": "chain_coupled_from_rear_motor",
+        "native_motor_ports": []
+      },
+      "chain": {
+        "enabled": true,
+        "independent_loops": 2,
+        "sprocket_rear_teeth": 12,
+        "sprocket_front_teeth": 12,
+        "ratio_nominal": 1,
+        "physics_coupling_accepted": false
+      },
+      "attachment": null,
+      "lidar": false,
+      "laser": false,
+      "reference_file": "configs/drivetrains/mixed_omni_chain.json",
+      "draft_visual": "assets/prototypes/v4_procedural_studies/mixed_omni_chain_DRAFT.glb",
+      "high_fidelity_expected": "assets/base/mixed_omni_chain.glb",
+      "high_fidelity_uploaded": false
     },
     {
       "id": "four_rubber_chain",
-      "front": "rubber",
-      "chain": true,
-      "ratio": 1,
-      "status": "optional_physics_pending"
+      "label": "Rubber Chain — 4 rubber wheels driven through rear motors + chain",
+      "default": false,
+      "motor_count": 2,
+      "rear": {
+        "wheel_type": "rubber",
+        "side_drive": [
+          "outA",
+          "outB"
+        ],
+        "both_direct_drive": true
+      },
+      "front": {
+        "wheel_type": "rubber",
+        "direct_drive": false,
+        "torque_transfer": "chain_coupled_from_rear_motor",
+        "native_motor_ports": []
+      },
+      "chain": {
+        "enabled": true,
+        "independent_loops": 2,
+        "sprocket_rear_teeth": 12,
+        "sprocket_front_teeth": 12,
+        "ratio_nominal": 1,
+        "physics_coupling_accepted": false
+      },
+      "attachment": null,
+      "lidar": false,
+      "laser": false,
+      "reference_file": "configs/drivetrains/four_rubber_chain.json",
+      "draft_visual": "assets/prototypes/v4_procedural_studies/four_rubber_chain_DRAFT.glb",
+      "high_fidelity_expected": "assets/base/four_rubber_chain.glb",
+      "high_fidelity_uploaded": false
     }
   ],
-  "reference_geometry": {
-    "wheel_diameter_mm": 60,
-    "wheel_base_mm": 167,
-    "front_centers_mm": [
+  "geometry_references": {
+    "source": "V3.8.x historical geometry, verify final production interface",
+    "wheel_diameter_mm_approx": 60,
+    "front_to_rear_axle_center_z_mm": 167,
+    "front_omni_axes_mm": [
       [
         -107,
         30,
@@ -77,7 +231,7 @@
         96
       ]
     ],
-    "rear_centers_mm": [
+    "rear_rubber_axes_mm": [
       [
         -95,
         30,
@@ -89,11 +243,12 @@
         -71
       ]
     ],
-    "chain_sprocket_teeth": 12
+    "front_rubber_compatibility": "provisional—verify physical width/hub/guard before acceptance"
   },
   "validation": {
-    "geometry": "source/derived candidates, no native runtime test",
-    "physics": "not tested",
-    "front_rubber_wheel": "provisional derived from rear tire; inspect tyre width and guard clearance"
+    "four_draft_glbs_present": true,
+    "high_fidelity_assets_upload_pending": true,
+    "geometry_production_verified": false,
+    "gears_ammo_runtime_verified": false
   }
 }

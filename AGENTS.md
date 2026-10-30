@@ -2,6 +2,9 @@
 Role: 3D mechanical asset engineer + robotics simulation integration specialist, accountable for **finished GLB, part GLBs, source code, manifest and QA**. Work in Vietnamese in reports, English for mesh/node names.
 
 ## Unbreakable product baseline
+- Source of truth: `docs/BASE_CONFIGURATION_STANDARD.md` and `configs/robot_family.json` (`configs/drivetrains/*.json` for exact profiles). Do not make a V3.8.5 full-preview GLB the default. Always offer exactly four drivetrain presets from that canonical specification.
+- Keep two rear motors only (left `outA`, right `outB`), front wheels passive unless the selected chain profile mechanically couples front to rear; never create two extra front electrical motors by inference.
+
 - Default: four **ordinary rubber wheels** (two *rear driven* by two independent gear motors + two *front passive*), NO attachment, NO LiDAR, NO laser, NO chain drive.
 - Alternative variants: `mixed_omni_2wd`; `mixed_omni_chain`; `four_rubber_chain`.
 - All sensor modules (camera, color sensors, ultrasonic, LiDAR, laser, touch, gyro, GPS) must have explicit options and optical origins. User-approved central camera may be enabled on the default but must be removable.

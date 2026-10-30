@@ -1,0 +1,76 @@
+{
+  "kind": "TEKY_Rover_Drivetrain_Profile",
+  "schema_version": "1.0",
+  "id": "default_4rubber_2wd",
+  "title": "Standard 2WD — 4 rubber wheels",
+  "default": true,
+  "parts": {
+    "chassis": "Chassis_Root",
+    "guard": "Protection_Frame_Root",
+    "guard_is_separate": true,
+    "rear": [
+      "Wheel_Rear_Left",
+      "Wheel_Rear_Right"
+    ],
+    "front": [
+      "Wheel_Front_Left",
+      "Wheel_Front_Right"
+    ],
+    "drivetrain": []
+  },
+  "control": {
+    "actuator_count": 2,
+    "logical_ports": {
+      "left_rear": "outA",
+      "right_rear": "outB"
+    },
+    "front_motor_count": 0,
+    "differential_steering": true
+  },
+  "rear_wheels": [
+    {
+      "id": "Wheel_Rear_Left",
+      "type": "rubber",
+      "drive": "direct_from_motor_left"
+    },
+    {
+      "id": "Wheel_Rear_Right",
+      "type": "rubber",
+      "drive": "direct_from_motor_right"
+    }
+  ],
+  "front_wheels": [
+    {
+      "id": "Wheel_Front_Left",
+      "type": "rubber",
+      "drive": "passive_free"
+    },
+    {
+      "id": "Wheel_Front_Right",
+      "type": "rubber",
+      "drive": "passive_free"
+    }
+  ],
+  "transmission": {
+    "type": "none",
+    "left_side_independent": false,
+    "right_side_independent": false,
+    "sprocket_teeth_per_axle": null,
+    "nominal_gear_ratio": null,
+    "physics_model": "front wheel passive in physics",
+    "visual_animation_only_is_not_physics": true
+  },
+  "default_attachment": null,
+  "default_sensors": {
+    "lidar": false,
+    "laser": false
+  },
+  "status": "DRAFT_CONFIG",
+  "visual_draft": "assets/prototypes/v4_procedural_studies/default_4rubber_2wd_DRAFT.glb",
+  "geometry_integration_notes": [
+    "Use GLB metres, TEKY native cm only where verified",
+    "Keep wheel pivot at actual axle center",
+    "Collider+guard separately authored, fixed to chassis",
+    "Actual rear motor signs, front wheel friction and chain constraint require GEARS runtime verification"
+  ]
+}
