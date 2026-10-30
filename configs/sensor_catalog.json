@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "baseline": {
+    "lidar": false,
+    "laser": false,
+    "front_line_color_sensor_count": 3,
+    "ultrasonic_front": "legacy fitted if present",
+    "central_camera": "detachable; enabled by product preference"
+  },
+  "available_modules": [
+    {
+      "type": "ColorSensor",
+      "name": "Line_Left",
+      "facing": "-Y"
+    },
+    {
+      "type": "ColorSensor",
+      "name": "Line_Center",
+      "facing": "-Y"
+    },
+    {
+      "type": "ColorSensor",
+      "name": "Line_Right",
+      "facing": "-Y"
+    },
+    {
+      "type": "ColorSensor",
+      "name": "Front_Color",
+      "facing": "+Z"
+    },
+    {
+      "type": "UltrasonicSensor",
+      "name": "Front_Ultrasonic",
+      "facing": "+Z"
+    },
+    {
+      "type": "CameraSensor",
+      "name": "Central_Overview",
+      "legacy_visual_center_mm": [
+        0,
+        330,
+        -100
+      ],
+      "pitch_down_deg": 27,
+      "optional": true
+    },
+    {
+      "type": "LidarSensor",
+      "name": "Lidar_360",
+      "legacy_visual_center_mm": [
+        0,
+        143,
+        -59
+      ],
+      "optional": true,
+      "known_occlusion": "camera pole casts rear blind wedge"
+    },
+    {
+      "type": "LaserRangeSensor",
+      "name": "Laser",
+      "optional": true
+    },
+    {
+      "type": "GyroSensor",
+      "name": "Gyro",
+      "optional": true
+    },
+    {
+      "type": "GPSSensor",
+      "name": "GPS",
+      "optional": true
+    },
+    {
+      "type": "TouchSensor",
+      "name": "Lift_Upper_Endstop",
+      "optional": true
+    },
+    {
+      "type": "TouchSensor",
+      "name": "Lift_Lower_Endstop",
+      "optional": true
+    }
+  ],
+  "note": "Logical sensor ports assigned by order in GEARS. Confirm exact available component types and TEKY fork; hide native visuals only."
+}

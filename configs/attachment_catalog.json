@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "active_limit": 1,
+  "dock": "Attachment_Dock_Front",
+  "attachments": [
+    {
+      "id": "01_push_capture",
+      "motion": "fixed",
+      "description": "push and collect 40mm cubes",
+      "reference_version": "V3.7",
+      "runtime_accepted": false
+    },
+    {
+      "id": "02_rotating_sweeper",
+      "motion": "revolute",
+      "description": "sweeper rotation",
+      "reference_version": "V3.7",
+      "runtime_accepted": false
+    },
+    {
+      "id": "03_single_pivot_lift",
+      "motion": "revolute",
+      "description": "single arm lift",
+      "reference_version": "V3.7",
+      "runtime_accepted": false
+    },
+    {
+      "id": "04_linear_forklift",
+      "motion": "prismatic",
+      "description": "vertical forklift",
+      "reference_version": "V3.7",
+      "runtime_accepted": false
+    },
+    {
+      "id": "05_ball_launcher",
+      "motion": "launcher",
+      "description": "ball propulsion",
+      "reference_version": "V3.7",
+      "runtime_accepted": false
+    },
+    {
+      "id": "06_articulated_arm",
+      "motion": "revolute",
+      "description": "multiple arm joints",
+      "reference_version": "V3.7",
+      "runtime_accepted": false
+    },
+    {
+      "id": "07_magnetic_slider",
+      "motion": "prismatic+magnet",
+      "description": "move and capture with magnet",
+      "reference_version": "V3.7",
+      "runtime_accepted": false
+    },
+    {
+      "id": "08_tilt_bucket",
+      "motion": "revolute",
+      "description": "tilting bin",
+      "reference_version": "V3.7",
+      "runtime_accepted": false
+    },
+    {
+      "id": "09_two_stage_direct_gripper",
+      "motion": "prismatic+gripper",
+      "description": "22cm lift, 1–2 40mm blocks floor pickup",
+      "reference_version": "V3.7",
+      "runtime_accepted": false
+    }
+  ]
+}

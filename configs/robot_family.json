@@ -1,0 +1,99 @@
+{
+  "project": "TEKY Modular Rover",
+  "schema_version": "1.0",
+  "canonical_base": "default_4rubber_2wd",
+  "coordinate_frame": "+X right, +Y up, +Z forward",
+  "glb_unit": "meter",
+  "teky_coordinate_unit": "cm (if native schema verified)",
+  "default": {
+    "rear_wheels": {
+      "count": 2,
+      "type": "rubber",
+      "driven": true,
+      "motor_logical_ports": [
+        "outA",
+        "outB"
+      ]
+    },
+    "front_wheels": {
+      "count": 2,
+      "type": "rubber",
+      "driven": false
+    },
+    "chain": false,
+    "attachment": null,
+    "lidar": false,
+    "laser": false,
+    "central_camera": {
+      "available": true,
+      "default_enabled": true,
+      "detachable": true
+    },
+    "protection_guard": {
+      "asset_group": "separate",
+      "mount": "fixed_to_chassis"
+    }
+  },
+  "variants": [
+    {
+      "id": "default_4rubber_2wd",
+      "front": "rubber",
+      "chain": false,
+      "status": "canonical"
+    },
+    {
+      "id": "mixed_omni_2wd",
+      "front": "omni",
+      "chain": false,
+      "status": "optional"
+    },
+    {
+      "id": "mixed_omni_chain",
+      "front": "omni",
+      "chain": true,
+      "ratio": 1,
+      "status": "optional_physics_pending"
+    },
+    {
+      "id": "four_rubber_chain",
+      "front": "rubber",
+      "chain": true,
+      "ratio": 1,
+      "status": "optional_physics_pending"
+    }
+  ],
+  "reference_geometry": {
+    "wheel_diameter_mm": 60,
+    "wheel_base_mm": 167,
+    "front_centers_mm": [
+      [
+        -107,
+        30,
+        96
+      ],
+      [
+        107,
+        30,
+        96
+      ]
+    ],
+    "rear_centers_mm": [
+      [
+        -95,
+        30,
+        -71
+      ],
+      [
+        95,
+        30,
+        -71
+      ]
+    ],
+    "chain_sprocket_teeth": 12
+  },
+  "validation": {
+    "geometry": "source/derived candidates, no native runtime test",
+    "physics": "not tested",
+    "front_rubber_wheel": "provisional derived from rear tire; inspect tyre width and guard clearance"
+  }
+}

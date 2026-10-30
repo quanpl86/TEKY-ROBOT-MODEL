@@ -1,0 +1,11 @@
+{
+  "version": "2026-10-30",
+  "documents_published": true,
+  "binary_glb_published": false,
+  "reason": "Binary GLB files generated locally; connector publication not yet verified. Do not infer that assets referenced in docs are hosted.",
+  "local_bundle": "TEKY_ROVER_GITHUB_HANDOFF.zip",
+  "baseline": "default_4rubber_2wd",
+  "source_version": "V3.8.5",
+  "geometry_reports_available_locally": true,
+  "runtime_tested": false
+}
